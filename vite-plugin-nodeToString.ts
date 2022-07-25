@@ -48,7 +48,7 @@ function nodeTOText() {
   for (const key in temp) {
     let code = temp[key].replace(/`/ig, "\\`");
     code = code.replace(/\$/ig, '\\$');
-    str += `export const ${key} = \`${temp[key]};\`\r\n`;
+    str += `export const ${key} = \`${code};\`\r\n`;
   }
   fs.writeFileSync(`${resultDir}/index.ts`, str);
 }
