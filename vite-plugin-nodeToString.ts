@@ -44,11 +44,10 @@ function nodeTOText() {
     let res = fs.readFileSync(`${dir}/${item}`);
     temp[key] = res.toString()
   }
-  let str = ``
+  let templateJSON = JSON.stringify(temp);
+  let str = `const templateJSON = ${templateJSON};\r\n`
   for (const key in temp) {
-    let code = temp[key].replace(/`/ig, "\\`");
-    code = code.replace(/\$/ig, '\\$');
-    str += `export const ${key} = \`${code};\`\r\n`;
+    str += `export const ${key} = templateJSON.${key};\r\n`;
   }
   fs.writeFileSync(`${resultDir}/index.ts`, str);
 }
