@@ -13,7 +13,7 @@ export default function nodeTOString() {
       watchFile();
       nodeTOText();
     },
-    closebundle() {
+    closeBundle() {
       watcher?.close();
     },
     resolveId(id) {
