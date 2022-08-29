@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "helloWorld",
   "description": "我是一个helloWorld插件",
-  "version": "1.0.0",
+  "version": "2022082906",
   "author": "author",
   "background": {
     "scripts": [

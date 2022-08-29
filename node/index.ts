@@ -1,21 +1,2 @@
-export const helloWorld = `module.exports = async (context) => {
-  const { Builder, By, until } = require("selenium-webdriver");
-  let { 
-    driver,
-    args,
-    options
-  } = context;
-  await driver.get(args.openUrl);
-  let searchText = args.keyword;
-  let searchEdit = driver.findElement(By.id("kw"));
-  driver.executeScript("arguments[0].value=arguments[1];", searchEdit, searchText);
-  await new Promise((res) => setTimeout(res, 1000));
-  let search = await driver.findElement(By.id("su"));
-  driver.executeScript("arguments[0].click();", search);
-  await new Promise((res) => setTimeout(res, 5000));
-  return {
-    code: 0,
-    data: args.keyword,
-    message: "ok"
-  };
-} ;`
+const templateJSON = {"helloWorld":"module.exports = async (context) => {\n  const { Builder, By, until } = require(\"selenium-webdriver\");\n  let { \n    driver,\n    args,\n    options\n  } = context;\n  await driver.get(args.openUrl);\n  let searchText = args.keyword;\n  let searchEdit = driver.findElement(By.id(\"kw\"));\n  driver.executeScript(\"arguments[0].value=arguments[1];\", searchEdit, searchText);\n  await new Promise((res) => setTimeout(res, 1000));\n  let search = await driver.findElement(By.id(\"su\"));\n  driver.executeScript(\"arguments[0].click();\", search);\n  await new Promise((res) => setTimeout(res, 5000));\n  return {\n    code: 0,\n    data: args.keyword,\n    message: \"ok\"\n  };\n} "};
+export const helloWorld = templateJSON.helloWorld;
