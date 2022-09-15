@@ -40,6 +40,8 @@ function nodeTOText() {
   let res = fs.readdirSync(dir);
   let temp = {};
   for (const item of res) {
+    //过滤隐藏文件
+    if (item.indexOf(".") === 0) continue;
     let key = item.slice(0, item.indexOf("."));
     let res = fs.readFileSync(`${dir}/${item}`);
     temp[key] = res.toString()
@@ -47,7 +49,6 @@ function nodeTOText() {
   let templateJSON = JSON.stringify(temp);
   let str = `const templateJSON = ${templateJSON};\r\n`
   for (const key in temp) {
-    if (!key) continue;
     str += `export const ${key} = templateJSON.${key};\r\n`;
   }
   fs.writeFileSync(`${resultDir}/index.ts`, str);
