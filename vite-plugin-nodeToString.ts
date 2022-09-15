@@ -47,6 +47,7 @@ function nodeTOText() {
   let templateJSON = JSON.stringify(temp);
   let str = `const templateJSON = ${templateJSON};\r\n`
   for (const key in temp) {
+    if (!key) continue;
     str += `export const ${key} = templateJSON.${key};\r\n`;
   }
   fs.writeFileSync(`${resultDir}/index.ts`, str);
