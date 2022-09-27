@@ -1,7 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from "path"
-import nodeToString from './vite-plugin-nodeToString'
+import node2string from "vite-plugin-node2string"
+
+let opts = { path: path.resolve(__dirname, "./node/script"), targetFile: path.resolve(__dirname, "./node/index.ts") }
+
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
@@ -10,5 +13,5 @@ export default defineConfig({
       '@script': path.resolve(__dirname, './node/index.ts')
     }
   },
-  plugins: [react(), nodeToString()]
+  plugins: [react(), node2string(opts)]
 })

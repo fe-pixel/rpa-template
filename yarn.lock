@@ -1340,6 +1340,11 @@ update-browserslist-db@^1.0.4:
     escalade "^3.1.1"
     picocolors "^1.0.0"
 
+vite-plugin-node2string@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/vite-plugin-node2string/-/vite-plugin-node2string-1.0.8.tgz#586aa5714c7edfbcbefe726272b0723e79655267"
+  integrity sha512-6Bfp83/1fsYn5pr5Q0PPHbOtuKCKYtCptrKfOswi46qBa5Icc/2nQjW6cx0elQ4TcFSkv61WDdvMpWq/+kIYXg==
+
 vite@^3.0.0:
   version "3.0.2"
   resolved "https://registry.npmjs.org/vite/-/vite-3.0.2.tgz"
